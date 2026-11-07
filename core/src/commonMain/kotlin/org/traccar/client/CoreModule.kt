@@ -14,6 +14,7 @@ internal fun coreModule(): Module = module {
 
     single<Uploader> { HttpUploader(get(), get()) }
     single { LocationFilter(get(), get()) }
+    single { HygieneFilter(get()) }
 
     single {
         TrackerEngine(
@@ -22,7 +23,7 @@ internal fun coreModule(): Module = module {
             network = get(),
             locationSource = get(),
             signalSources = get(),
-            processors = listOf(get<LocationFilter>(), get()),
+            processors = listOf(get<HygieneFilter>(), get<LocationFilter>(), get()),
             uploader = get(),
             buffer = get<Config>().buffer,
             scope = get(),

@@ -14,6 +14,8 @@ class LocationConfig {
     this.stopTimeoutSeconds = 60,
     this.stationaryRadiusMeters = 100,
     this.heartbeatIntervalSeconds = 0,
+    this.maxAccuracyMeters = 0,
+    this.maxSpeedKmh = 0,
   });
 
   final Accuracy accuracy;
@@ -24,6 +26,8 @@ class LocationConfig {
   final int stopTimeoutSeconds;
   final int stationaryRadiusMeters;
   final int heartbeatIntervalSeconds;
+  final int maxAccuracyMeters;
+  final int maxSpeedKmh;
 
   Map<String, Object?> _toMap() => {
         'accuracy': accuracy.name.toUpperCase(),
@@ -34,6 +38,8 @@ class LocationConfig {
         'stopTimeoutSeconds': stopTimeoutSeconds,
         'stationaryRadiusMeters': stationaryRadiusMeters,
         'heartbeatIntervalSeconds': heartbeatIntervalSeconds,
+        'maxAccuracyMeters': maxAccuracyMeters,
+        'maxSpeedKmh': maxSpeedKmh,
       };
 }
 
